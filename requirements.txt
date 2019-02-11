@@ -1,0 +1,9 @@
+# db.py: 4,5
+# server.py: 3
+Flask == 0.12
+
+# db.py: 3
+click == 6.7
+
+# data_dumper.py: 1
+lazyxml == 1.2.1
