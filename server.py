@@ -3,7 +3,12 @@ import sqlite3
 from flask import Flask, g, jsonify
 from collections import OrderedDict, Counter
 
-app = Flask(__name__)
+from flask import Flask
+from flask import redirect
+
+from flask_sqlalchemy import SQLAlchemy
+
+
 
 @app.before_request
 def before_request():
@@ -22,6 +27,8 @@ def users(id):
 	"""
 	response = OrderedDict()
 	# Initiate the query
+
+	
 	
 	users = g.db.execute("SELECT user_id, country, activity, video_id FROM foo").fetchall()
 	country_checker, videos_uploaded, videos_watched, videos_liked = [], [], [], []
@@ -176,6 +183,7 @@ def get_top_info():
 		'video_ids': filtered_list
 	}
 	return jsonify(response)
+	# End of last endpoint
 
 if __name__ == "__main__":
 	app.run(debug=True)
